@@ -1,0 +1,4 @@
+gspread
+folium
+geopandas
+streamlit

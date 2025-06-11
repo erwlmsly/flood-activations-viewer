@@ -1,0 +1,162 @@
+[project]
+name = "flood-seasonality-app"
+version = "0.1.0"
+description = "A basic streamlit app to vizualise flood activations per month througout the year"
+authors = [
+    {name = "erwlmsly",email = "135661844+erwlmsly@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "gspread (>=6.2.1,<7.0.0)",
+    "folium (>=0.19.7,<0.20.0)",
+    "geopandas (>=1.1.0,<2.0.0)",
+    "streamlit (>=1.45.1,<2.0.0)"
+]
+package-mode = false
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = [
+    "A",    # builtins
+    "B",    # bugbear
+    "C",    # flake8-comprehensions
+    "DTZ",  # datetime checks, mostly for UTC
+    "E",    # pycodestyle errors
+    "ERA",  # Eradicate (commented out code)
+    "F",    # pyflakes
+    "FLY",  # flynt (enforce f-strings)
+    "G",    # logging format
+    "I",    # isort
+    "NPY",  # numpy
+    "PERF", # Perflint
+    "PGH",  # pygrep-hooks
+    "PIE",  # misc lints
+    "PT",   # pytest linting
+    "RET",  # Return
+    "RUF",  # Ruff-specific rules
+    "S",    # Bandit security
+    "SIM",  # Simplify
+    "W",    # pycodestyle warnings
+    ]
+
+ignore = [
+    "E501",   # Ignore line length errors, Black will handle formatting and long comments/strings are ok
+    "B008",
+    "DTZ002",
+    "DTZ005",
+    "DTZ007",
+    "E711",
+    "E712",
+    "S101"    # Ignore assert checks for tests
+    ]
+
+extend-select = ["C4", "SIM"]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "I",
+    "N",
+    "Q",
+    "S",
+    "T",
+    "W",
+    "ANN",
+    "ARG",
+    "BLE",
+    "COM",
+    "DJ",
+    "DTZ",
+    "EM",
+    "ERA",
+    "EXE",
+    "FBT",
+    "ICN",
+    "INP",
+    "ISC",
+    "NPY",
+    "PD",
+    "PGH",
+    "PIE",
+    "PL",
+    "PT",
+    "PTH",
+    "PYI",
+    "RET",
+    "RSE",
+    "RUF",
+    "SIM",
+    "SLF",
+    "TCH",
+    "TID",
+    "TRY",
+    "UP",
+    "YTT",
+    "SIM",
+    ]   
+unfixable = []
+show-fixes = true
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    ]
+per-file-ignores = {}
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.12.
+target-version = "py312"
+
+[tool.ruff.flake8-pytest-style]
+fixture-parentheses = false
+mark-parentheses = false
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.ruff.isort]
+known-first-party = [
+    "authorization",
+    "common",
+    "database",
+    "environment",
+    "features",
+    "logger",
+    "main",
+    "route_prefix",
+    "route_tag",
+    ]
